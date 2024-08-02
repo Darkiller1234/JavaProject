@@ -1,0 +1,7 @@
+package 끼얏호우;
+
+public class Stuff {
+	private String name;
+	private String Category;
+
+}

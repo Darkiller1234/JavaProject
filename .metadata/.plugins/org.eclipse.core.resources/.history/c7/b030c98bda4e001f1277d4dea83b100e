@@ -1,0 +1,6 @@
+package q.thread.ex1;
+
+//쓰레드 생성방법 2. Runnable
+public class MyRunable {
+
+}

@@ -1,0 +1,120 @@
+package 끼얏호우;
+
+import java.util.Scanner;
+
+public class LockerMenu {
+	private Scanner sc = new Scanner(System.in);
+	private LockerController lc = new LockerController();
+	
+	
+	
+	public void MainMenu() {
+		while(true) {
+			if(lc.getUserIndex() == -1) {
+				System.out.println("환영합니다.");
+				System.out.println("로그인 또는 회원가입을 선택해주세요.");
+				String str = sc.nextLine();
+				if(str.contains("로그인")) {
+					Login();
+				}
+				else if(str.contains("회원가입")) {
+					Registor();
+				}
+				else if(str.contains("종료")) {
+					System.out.println("종료합니다.");
+					return;
+				}
+				else {
+					System.out.println("다시 입력해주세요.");
+				}
+			}
+			else if(lc.getUserIndex() == -2){
+				
+			}
+			else {
+				System.out.println(lc.getUser().getName() + "님, 방문해주셔서 감사합니다.");
+				System.out.println(lc.getUser().getName() + "님께서 맡기신 물건의 갯수는 ");
+				System.out.println("총 " + lc.getUser().getStuff().size() + "개 입니다.");
+				System.out.println("무엇을 하시겠습니까?");
+				String str = sc.nextLine();
+				if(str.contains("종료")) {
+					System.out.println("종료합니다.");
+					return;
+				}
+				else if(str.contains("로그아웃")) {
+					System.out.println("로그아웃합니다.");
+					Logout();
+				}
+				else if(str.contains("도움말")) {
+					System.out.println("다움과 같은 명령어를 사용할 수 있습니다.");
+					System.out.println("물건 맡기기, 물건 찾아가기, 물건 확인하기\n로그아웃, 종료");
+				}
+				else if(str.contains("맡기기") || str.contains("맡긴다")) {
+					KeepStuff();
+				}
+				else if(str.contains("찾아") || str.contains("가져")) {
+					TakeStuff();
+				}
+			}
+		}
+	}
+	
+	public void Login() {
+		System.out.print("ID : ");
+		String Id = sc.nextLine();
+		System.out.print("Password : ");
+		String Pd = sc.nextLine();
+		User u = lc.Login(Id, Pd);
+		if(u == null) {
+			System.out.println("ID 또는 Password 가 일치하지 않습니다.");
+			System.out.println();
+		} else {
+			System.out.println("로그인 성공.");
+		}
+	}
+	
+	public void Registor() {
+		System.out.print("이름 : ");
+		String name = sc.nextLine();
+		System.out.print("ID : ");
+		String Id = sc.nextLine();
+		System.out.print("Password : ");
+		String Pd = sc.nextLine();
+		
+		boolean b = lc.Registor(name, Id, Pd);
+		if(b==true) {
+			System.out.println("회원가입 성공.");
+		}
+		else {
+			System.out.println("아이디가 중복입니다.");
+		}
+	}
+	
+	public void Logout() {
+		if(lc.Logout() == true) {
+			System.out.println("로그아웃 성공.");
+			return;
+		}
+		else {
+			System.out.println("에러");
+			return;
+		}
+	}
+	
+	public void KeepStuff() {
+		System.out.println("맡기실 물건의 이름이 뭔가요?");
+		String str1 = sc.nextLine();
+		System.out.println("맡기실 물건의 종류는 무엇인가요?");
+		String str2 = sc.nextLine();
+		if(lc.KeepStuff(str1, str2)) {
+			System.out.println("물건 맡아놓겠습니다. 감사합니다.");
+		}
+		else {
+			System.out.println("중복된 이름의 물건이 이미 존재합니다.");
+		}
+	}
+	
+	public void TakeStuff() {
+		
+	}
+}

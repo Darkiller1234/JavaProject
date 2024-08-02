@@ -1,0 +1,55 @@
+package 끼얏호우;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class LockerMenu {
+	private Scanner sc = new Scanner(System.in);
+	private LockerController lc = new LockerController();
+	private List<User> user = new ArrayList();
+	private int userIndex = -1;
+	public void MainMenu() {
+		while(true) {
+			if(userIndex == -1) {
+				System.out.println("환영합니다.");
+				System.out.println("로그인 또는 회원가입을 선택해주세요.");
+				String str = sc.nextLine();
+				if(str.contains("로그인")) {
+					Login();
+				}
+				else if(str.contains("회원가입")) {
+					Join();
+				}
+				else {
+					System.out.println("다시 입력해주세요.");
+				}
+			}
+			else if(userIndex == -2){
+				
+			}
+			else {
+				
+			}
+			System.out.println("물품보관함");
+			System.out.print("id : ");
+			String id = sc.nextLine();
+			System.out.print("password : ");
+			String pd = sc.nextLine();
+			for(int i = 0; i < user.size(); i++) {
+				if(user.get(i).getId().equals(id) && user.get(i).getPd().equals(pd)) {
+					userIndex = i;
+					break;
+				}
+			}
+		}
+	}
+	
+	public void Login() {
+		
+	}
+	
+	public void Join() {
+		
+	}
+}

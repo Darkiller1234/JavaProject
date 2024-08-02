@@ -1,0 +1,13 @@
+package 끼얏호우;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class User {
+	private String Id;
+	private String Pd;
+	private List stuff = new ArrayList();
+	
+	
+	
+}

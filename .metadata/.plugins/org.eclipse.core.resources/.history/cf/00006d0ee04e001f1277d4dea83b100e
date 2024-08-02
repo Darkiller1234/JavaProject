@@ -1,0 +1,11 @@
+package q.thread.chat;
+
+public class ClientSend implements Runnable{
+	private Socket socket;
+
+	public ClientSend(Socket socket) {
+		super();
+		this.socket = socket;
+	}
+	
+}

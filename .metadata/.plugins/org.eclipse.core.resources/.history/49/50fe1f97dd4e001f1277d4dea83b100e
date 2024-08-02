@@ -1,0 +1,14 @@
+package q.thread.chat;
+
+import java.net.Socket;
+
+public class ServerReceive extends Thread{
+	private Socket socket;
+	@Override
+	public void run(Socket socket) {
+		// TODO Auto-generated method stub
+		super.run();
+		this.socket = socket;
+	}
+	
+}

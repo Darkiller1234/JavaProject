@@ -1,0 +1,8 @@
+package 끼얏호우;
+
+public class User {
+	private String Id;
+	private String Pd;
+	
+	
+}

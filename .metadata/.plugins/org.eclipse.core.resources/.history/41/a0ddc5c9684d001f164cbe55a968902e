@@ -1,0 +1,8 @@
+package test240729.object1;
+
+public class LotteryMeun {
+	public void mainMenu() {
+		
+	}
+	
+}

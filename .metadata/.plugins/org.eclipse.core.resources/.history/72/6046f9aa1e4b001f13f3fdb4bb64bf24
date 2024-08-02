@@ -1,0 +1,63 @@
+package test240726.object2;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class MusicController {
+	private List list = new ArrayList();
+	
+	public int addList(Music music) {
+		list.add(music);
+		return 1;
+	}
+	
+	public int addAtZero(Music music) {
+		list.add(0, music);
+		return 1;
+	}
+	
+	public List printAll() {
+		return this.list;
+	}
+	
+	public Music searchMusic(String title) {
+		for (int i = 0; i<list.size(); i++) {
+			if(((Music)list.get(i)).getTitle().equals(title)) {
+				return (Music) list.get(i);
+			}
+		}
+		return null;
+	}
+	
+	public Music removeMusic(String title) {
+		for (int i = 0; i<list.size(); i++) {
+			if(((Music)list.get(i)).getTitle().contains(title)) {
+				Music m = (Music) list.get(i);
+				list.remove(i);
+				return m ;
+			}
+		}
+		return null;
+	}
+	
+	public Music setMusic(String title, Music music) {
+		for (int i = 0; i<list.size(); i++) {
+			if(((Music)list.get(i)).getTitle().contains(title)) {
+				Music m = (Music) list.get(i);
+				list.set(i, music);
+				return m;
+			}
+		}
+		return null;
+	}
+	
+	public int ascTitle() {
+		
+		return 0;
+	}
+	
+	public int descSinger() {
+		
+		return 0;
+	}
+}

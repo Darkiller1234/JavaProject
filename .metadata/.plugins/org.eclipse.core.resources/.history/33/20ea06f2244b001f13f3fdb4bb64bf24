@@ -1,0 +1,32 @@
+package 끼얏호우;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class LockerController {
+	private List<User> user = new ArrayList();
+	private int userIndex = -1;
+	public User Login(String id, String pd) {
+		for(int i = 0; i < user.size(); i++) {
+			if(user.get(i).getId().equals(id) && user.get(i).getPd().equals(pd)) {
+				userIndex = i;
+				break;
+			}
+		}
+		
+		return null;
+	}
+	
+	
+	
+	
+	
+	
+	
+	public int getUserIndex() {
+		return userIndex;
+	}
+	public void setUserIndex(int userIndex) {
+		this.userIndex = userIndex;
+	}
+}
