@@ -1,8 +1,0 @@
-package test240729.object1;
-
-public class SortedLottery {
-	public int compare(Music o1, Music o2) {
-		//compareTo -> 나자신과 비교해서 크면 1 작으면 -1 동일하면 0
-		return o1.getTitle().equals(o2.getTitle())?o1.getTitle().compareTo(o2.getTitle()):o1.getSinger().compareTo(o2.getSinger());
-	}
-}
