@@ -1,4 +1,4 @@
-package com.kh.vo;
+package com.kh.server.vo;
 
 import java.util.ArrayList;
 import java.util.List;

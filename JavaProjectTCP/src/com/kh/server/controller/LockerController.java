@@ -1,12 +1,12 @@
-package com.kh.controller;
+package com.kh.server.controller;
 
 import java.util.ArrayList;
 
-import com.kh.vo.Stuff;
-import com.kh.vo.User;
+import com.kh.server.vo.Stuff;
+import com.kh.server.vo.User;
 
 public class LockerController {
-	static private ArrayList<User> user = new ArrayList<User>();
+	private ArrayList<User> user = new ArrayList<User>();
 	private int userIndex = -1;
 
 	public User Login(String id, String pd) {
