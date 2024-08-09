@@ -29,7 +29,6 @@ public class Run {
 			System.out.println("응애");
 			try {
 				port = br.read();
-				pw.println("");
 				System.out.println(port);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block

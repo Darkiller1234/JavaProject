@@ -23,4 +23,8 @@
     <fullyQualifiedTypeName name="q.thread.chat.ClientReceive"/>
     <fullyQualifiedTypeName name="test240731.object1.FarmController"/>
     <fullyQualifiedTypeName name="java.util.Iterator"/>
+    <fullyQualifiedTypeName name="com.kh.server.view.LockerMenu"/>
+    <fullyQualifiedTypeName name="com.kh.server.run.ServerPortSet"/>
+    <fullyQualifiedTypeName name="java.lang.Thread"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
 </qualifiedTypeNameHistroy>

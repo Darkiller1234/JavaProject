@@ -1,7 +1,0 @@
-package test;
-
-public class GameMenu {
-	public void mainMenu() {
-		
-	}
-}
