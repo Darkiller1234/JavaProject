@@ -88,6 +88,7 @@ public class LockerMenu implements Runnable {
 				ss.Send(lc.getUser().getName() + "님, 방문해주셔서 감사합니다.");
 				ss.Send(lc.getUser().getName() + "님께서 맡기신 물건의 갯수는 ");
 				ss.Send("총 " + lc.getUser().getStuff().size() + "개 입니다.");
+				ss.Send("처음 방문하신 경우 '도움말'을 입력해주세요.");
 				ss.Send("무엇을 하시겠습니까?");
 				String str;
 				try {
