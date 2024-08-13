@@ -1,9 +1,0 @@
-package 끼얏호우;
-
-public class Run {
-	public static void main(String[] args) {
-//		new LockerMenu().MainMenu();
-		User[] pUser = new User[3];
-		System.out.println(pUser[0].getName());
-	}
-}

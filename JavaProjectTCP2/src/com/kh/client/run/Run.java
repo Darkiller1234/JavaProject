@@ -9,7 +9,7 @@ public class Run {
 		Socket socket;
 		int port;
 		try {
-			socket = new Socket("localhost", 3000);
+			socket = new Socket("192.168.30.192", 3000);
 			if (socket != null) {
 				System.out.println("서버와 연결 성공");
 
@@ -20,7 +20,7 @@ public class Run {
 						System.out.println(port);
 						break;
 					}
-					Socket sc = new Socket("localhost", port);
+					Socket sc = new Socket("192.168.30.192", port);
 					Thread receiveTask = new Thread(new ClientReceive(sc));
 
 					Thread sendTask = new Thread(new ClientSend(sc));
