@@ -9,14 +9,16 @@ import com.kh.client.view.MainMenu;
 public class Running {
 	private Socket socket;
 	private int port;
+	private String ip;
 
-	public Running() {
+	public Running(String ip) {
 		super();
+		this.ip = ip;
 	}
 
 	public void Excute() {
 		try {
-			socket = new Socket("192.168.30.192", 3000);
+			socket = new Socket(ip, 3000);
 			if (socket != null) {
 				System.out.println("서버와 연결 성공");
 
@@ -27,7 +29,7 @@ public class Running {
 						System.out.println(port);
 						break;
 					}
-					Socket sc = new Socket("192.168.30.192", port);
+					Socket sc = new Socket(ip, port);
 					new MainMenu(sc).StartProgram();
 				} catch (Exception e) {
 				}

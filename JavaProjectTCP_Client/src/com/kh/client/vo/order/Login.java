@@ -1,4 +1,4 @@
-package com.kh.client.vo;
+package com.kh.client.vo.order;
 
 public class Login {
 	private String Id;
