@@ -1,6 +1,8 @@
 package com.kh.client.vo.order;
 
-public class Login {
+import java.io.Serializable;
+
+public class Login implements Serializable{
 	private String Id;
 	private String Pwd;
 	public Login(String id, String pwd) {

@@ -1,6 +1,8 @@
-package com.kh.server.vo.order;
+package com.kh.client.vo.order;
 
-public class TakeStuff {
+import java.io.Serializable;
+
+public class TakeStuff implements Serializable{
 	private String Id;
 	private String name;
 	public TakeStuff(String id, String name) {

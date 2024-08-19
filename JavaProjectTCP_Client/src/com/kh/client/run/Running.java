@@ -23,17 +23,15 @@ public class Running {
 				System.out.println("서버와 연결 성공");
 
 				try (BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream()));) {
-					while (true) {
+
 						String message = br.readLine();
 						port = Integer.valueOf(message);
 						System.out.println(port);
-						break;
-					}
+					
 					Socket sc = new Socket(ip, port);
 					new MainMenu(sc).StartProgram();
 				} catch (Exception e) {
 				}
-				socket.close();
 			}
 		} catch (Exception e) {
 			return;

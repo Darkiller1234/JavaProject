@@ -1,6 +1,8 @@
 package com.kh.client.vo.order;
 
-public class GetUserInfo {
+import java.io.Serializable;
+
+public class GetUserInfo implements Serializable{
 	private String Id;
 
 	public GetUserInfo(String id) {

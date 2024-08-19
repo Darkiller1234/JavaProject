@@ -1,6 +1,12 @@
-package com.kh.server.vo.order;
+package com.kh.client.vo.order;
 
-public class Registor {
+import java.io.Serializable;
+
+public class Registor implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String Id;
 	private String Pwd;
 	private String name;

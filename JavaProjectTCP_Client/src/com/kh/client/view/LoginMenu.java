@@ -6,6 +6,7 @@ import com.kh.client.TCP.ClientReceive;
 import com.kh.client.TCP.ClientSend;
 import com.kh.client.vo.order.Login;
 import com.kh.client.vo.order.Registor;
+import com.kh.client.vo.order.TrueFalse;
 
 public class LoginMenu {
 	Scanner sc = new Scanner(System.in);
@@ -47,10 +48,18 @@ public class LoginMenu {
 		System.out.print("Password : ");
 		String Pwd = sc.nextLine();
 		cs.SendCode(new Login(Id, Pwd));
-		if((boolean) cr.ReceiveCode()) {
-			return Id;
+		Object obj = cr.ReceiveCode();
+		if(obj != null) {
+			if(((TrueFalse) obj).isResult()) {
+				return Id;
+			}
+			else {
+				return null;
+			}
 		}
-		return null;
+		else {
+			return null;	
+		}
 	}
 	public String Registor() {
 		System.out.print("ID : ");
@@ -59,11 +68,19 @@ public class LoginMenu {
 		String Pwd = sc.nextLine();
 		System.out.print("이름 : ");
 		String name = sc.nextLine();
+		System.out.println("ddd");
 		cs.SendCode(new Registor(Id, Pwd, name));
-		if((boolean) cr.ReceiveCode()) {
-			return Id;
+		System.out.println("eee");
+		Object obj = cr.ReceiveCode();
+		if(obj != null) {
+			if(((TrueFalse) obj).isResult()) {
+				return Id;
+			}
+			else {
+				return null;
+			}
 		}
-		
+		System.out.println("응애");
 		return null;
 	}
 }

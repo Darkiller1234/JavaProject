@@ -3,9 +3,14 @@ package com.kh.server.controller;
 import java.net.Socket;
 import java.util.ArrayList;
 
+import com.kh.client.vo.order.GetUserInfo;
+import com.kh.client.vo.order.KeepStuff;
+import com.kh.client.vo.order.Login;
+import com.kh.client.vo.order.Registor;
+import com.kh.client.vo.order.TakeStuff;
 import com.kh.server.TCP.ServerSend;
-import com.kh.server.vo.*;
-import com.kh.server.vo.order.*;
+import com.kh.server.vo.Stuff;
+import com.kh.server.vo.UserInfo;
 
 public class ServerController {
 	static private ArrayList<UserInfo> user = new ArrayList<UserInfo>();
@@ -44,7 +49,7 @@ public class ServerController {
 			if(user.get(i).getId().equals(ks.getId())) {
 				userindex = i;
 				for(int j = 0; j < user.get(userindex).getStuff().size(); j++) {
-					if(user.get(userindex).getStuff().get(j).getName().equals(ks.getName())) {
+					if(((Stuff) user.get(userindex).getStuff().get(j)).getName().equals(ks.getName())) {
 						return false;
 					}
 				}
@@ -57,18 +62,25 @@ public class ServerController {
 	}
 	
 	public boolean TakeStuff(TakeStuff ts) {
-		int userindex;
 		for(int i = 0; i < user.size(); i++) {
 			if(user.get(i).getId().equals(ts.getId())) {
-				userindex = i;
-				for(int j = 0; j < user.get(userindex).getStuff().size(); j++) {
-					if(user.get(userindex).getStuff().get(j).getName().equals(ts.getName())) {
-						user.get(userindex).getStuff().remove(j);
+				for(int j = 0; j < user.get(i).getStuff().size(); j++) {
+					if(((Stuff) user.get(i).getStuff().get(j)).getName().equals(ts.getName())) {
+						user.get(i).getStuff().remove(j);
 						return true;
 					}
 				}
 			}
 		}
 		return false;
+	}
+	
+	public UserInfo GetUserInfo(GetUserInfo ui) {
+		for(int i = 0; i < user.size(); i++) {
+			if(user.get(i).getId().equals(ui.getId())) {
+				return user.get(i);
+			}
+		}
+		return null;
 	}
 }

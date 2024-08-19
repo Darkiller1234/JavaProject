@@ -1,6 +1,8 @@
 package com.kh.client.vo.order;
 
-public class KeepStuff {
+import java.io.Serializable;
+
+public class KeepStuff implements Serializable{
 	private String Id;
 	private String name;
 	private String category;

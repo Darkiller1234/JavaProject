@@ -1,30 +1,29 @@
 package com.kh.client.TCP;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
 import java.net.Socket;
 
 public class ClientReceive{
-	private BufferedReader br;
-	
+	private Socket socket;
 	
 
 	public ClientReceive(Socket socket) {
-		super();
-		try {
-			br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-		} catch (IOException e) {
-			System.out.println("오류!오류!");
-			System.out.println("클라리시버에서 오류!");
-		}
+		this.socket = socket;
 	}
-	public Object ReceiveCode() {
-		try {
-			return (Object)br.readLine();
+	public synchronized Object ReceiveCode() {
+		
+		try (ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());){
+			
+			return ois.readObject();
 		} catch (IOException e) {
-			System.out.println("통신이 끊어졌다!");
+			System.out.println(e);
+			return null;
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 			return null;
 		}
+		
 	}
 }
