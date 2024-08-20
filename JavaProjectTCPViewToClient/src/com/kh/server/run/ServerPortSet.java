@@ -1,4 +1,4 @@
-package com.kh.server.TCP;
+package com.kh.server.run;
 
 import java.io.IOException;
 import java.io.PrintWriter;

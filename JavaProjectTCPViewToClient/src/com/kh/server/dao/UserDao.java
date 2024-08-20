@@ -25,8 +25,7 @@ public class UserDao {
 			pstmt.setString(3, u.getName());
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			return 0;
 		} finally {
 			JDBCTemplate.close(pstmt);
 		}
@@ -51,7 +50,7 @@ public class UserDao {
 				
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			return null;
 		}finally {
 			JDBCTemplate.close(rset);
 			JDBCTemplate.close(pstmt);
