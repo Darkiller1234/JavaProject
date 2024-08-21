@@ -87,11 +87,11 @@ public class StuffDao {
 		PreparedStatement pstmt = null;
 		ResultSet rset =null;
 		
-		String sql = "SELECT * FROM STUFF WHERE USER_ID = ? AND STUFF_NAME LIKE ('%?%')";
+		String sql = "SELECT * FROM STUFF WHERE USER_ID = ? AND STUFF_NAME LIKE ?";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
-			pstmt.setString(2, name);
+			pstmt.setString(2, "%" + name + "%");
 			rset = pstmt.executeQuery();
 			
 			
@@ -113,11 +113,11 @@ public class StuffDao {
 		PreparedStatement pstmt = null;
 		ResultSet rset =null;
 		
-		String sql = "SELECT * FROM STUFF WHERE USER_ID = ? AND STUFF_CATEGORY LIKE ('%?%')";
+		String sql = "SELECT * FROM STUFF WHERE USER_ID = ? AND STUFF_CATEGORY LIKE ?";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
-			pstmt.setString(2, category);
+			pstmt.setString(2, "%" + category + "%");
 			rset = pstmt.executeQuery();
 			
 			

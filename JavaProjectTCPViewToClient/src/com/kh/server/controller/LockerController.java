@@ -55,30 +55,30 @@ public class LockerController {
 			return false;
 	}
 	
-	public String StuffCheck(String id) {
+	public List<String> StuffCheck(String id) {
 		List<Stuff> list = new StuffService().StuffCheck(id);
-		String str = "";
+		List<String> str = new ArrayList<String>();
 		for(int i = 0; i < list.size(); i++) {
-			str += list.get(i).toString() + "\n";
+			str.add(list.get(i).toString());
 		}
 		
 		return str;
 	}
 	
-	public String CheckStuffName(String id, String name) {
+	public List<String> CheckStuffName(String id, String name) {
 		List<Stuff> list = new StuffService().CheckStuffName(id, name);
-		String str = "";
+		List<String> str = new ArrayList<String>();
 		for(int i = 0; i < list.size(); i++) {
-			str += list.get(i).toString() + "\n";
+			str.add(list.get(i).toString());
 		}
 		return str;
 	}
 	
-	public String CheckStuffCategory(String id, String category) {
+	public List<String> CheckStuffCategory(String id, String category) {
 		List<Stuff> list = new StuffService().CheckStuffCategory(id, category);
-		String str = "";
+		List<String> str = new ArrayList<String>();
 		for(int i = 0; i < list.size(); i++) {
-			str += list.get(i).toString() + "\n";
+			str.add(list.get(i).toString());
 		}
 		return str;
 	}

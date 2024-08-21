@@ -23,13 +23,12 @@ public class LoginMenu {
 				} else
 					System.out.println("로그인 실패. 다시 입력해주세요.");
 			} else if (choice.contains("회원가입")) {
-				/*
+
 				String str = Registor();
 				if (str != null) {
 					return str;
 				} else
 					System.out.println("이미 존재하는 Id입니다.");
-					*/
 			} else if (choice.contains("종료")) {
 				System.out.println("종료합니다.");
 				cs.Send(null);
@@ -51,13 +50,13 @@ public class LoginMenu {
 		cs.Flush();
 		String str = cr.Receive();
 		if (str.equals("false")) {
-			return "";
+			return null;
 		} else {
 			return Id;
 		}
 	}
 
-	/*
+
 	public String Registor() {
 		System.out.print("ID : ");
 		String Id = sc.nextLine();
@@ -66,18 +65,16 @@ public class LoginMenu {
 		System.out.print("이름 : ");
 		String name = sc.nextLine();
 		System.out.println("ddd");
-		cs.SendCode(new Registor(Id, Pwd, name));
-		System.out.println("eee");
-		Object obj = cr.ReceiveCode();
-		if (obj != null) {
-			if (((TrueFalse) obj).isResult()) {
-				return Id;
-			} else {
-				return null;
-			}
+		cs.Send("Registor");
+		cs.Send(name);
+		cs.Send(Id);
+		cs.Send(Pwd);
+		cs.Flush();
+		String str = cr.Receive();
+		if (str.equals("false")) {
+			return null;
+		} else {
+			return Id;
 		}
-		System.out.println("응애");
-		return null;
 	}
-	*/
 }

@@ -14,9 +14,13 @@ public class MainMenu {
 	}
 	
 	public void mainMenu() {
-		if(id.equals("")) {
-			id = new LoginMenu().loginMenu(send, receive);
-			System.out.println(id);
+		while(id != null) {
+			if(id.equals("")) {
+				id = new LoginMenu().loginMenu(send, receive);
+			}
+			else {
+				id = new LockerMenu().lockerMenu(id, send, receive);
+			}
 		}
 	}
 }
